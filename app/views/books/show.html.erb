@@ -41,27 +41,12 @@
       <!--コメント一覧表示-->
       <h3>Comments</h3>
       <table class='table'>
-        <tbody>
-          <% @mybook.book_comments.each do |comment| %>
-            <tr>
-              <td>
-                <%= link_to (comment.user) do %>
-                  <%= image_tag comment.user.get_profile_image, size:"100x100" %><br>
-                  <%= comment.user.name %>
-                <% end %>
-              </td>
-              <td><%= comment.comment %></td>
-              <% if comment.user == current_user %>
-                <td>
-                  <%= link_to 'Destroy', book_book_comment_path(comment.book, comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
-                </td>
-              <% end %>
-            </tr>
-          <% end %>
+        <tbody class='comment-area'>
+          <%= render 'book_comments/comments', mybook: @mybook %>
         </tbody>
       </table>
       <!--新規コメント入力-->
-      <%= form_with model:[@mybook, @comment],local:true do |f| %>
+      <%= form_with model:[@mybook, @comment], local:false do |f| %>
         <div class="form-group">
           <%= f.label :comment %>
           <%= f.text_area :comment, class: 'form-control' %>
