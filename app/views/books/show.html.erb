@@ -31,6 +31,9 @@
           <td>
             コメント数:<%= @mybook.book_comments.count %>
           </td>
+          <td>
+            閲覧数:<%= @mybook.viewcount %>
+          </td>
           <% if @user.id == current_user.id %>
             <td><%= link_to 'Edit', edit_book_path(@mybook), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', @mybook, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>

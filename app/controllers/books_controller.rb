@@ -4,6 +4,9 @@ class BooksController < ApplicationController
 
   def show
     @mybook = Book.find(params[:id])
+    # 閲覧数の追加
+    @mybook.update(viewcount: @mybook.viewcount+1)
+
     @user = @mybook.user
     @book = Book.new()
     @comment = BookComment.new()
