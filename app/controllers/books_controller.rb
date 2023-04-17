@@ -11,7 +11,12 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new()
+    time_range = (Time.now - 7.day)..Time.now
     @books = Book.all
+                 .left_joins(:favorites).group(:id)
+                 .select('books.*,COUNT("favorites"."id") as favorites_count')
+                 .where(favorites: {created_at: time_range})
+                 .order(favorites_count: :DESC)
   end
 
   def create
