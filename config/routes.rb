@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     # resources :messages, only: [:show, :create]
     get "messages/:id" => "messages#show", as: "message"
     post "messages/:id" => "messages#create", as: "message_post"
+
     resource :relationships, only: [:create, :destroy]
     get "follow" => "relationships#follow", as: "follow"
     get "followed" => "relationships#followed", as: "followed"

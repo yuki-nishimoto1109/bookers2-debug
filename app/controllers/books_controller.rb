@@ -20,6 +20,17 @@ class BooksController < ApplicationController
       b.favorites.where(created_at: from...to).size <=>
       a.favorites.where(created_at: from...to).size
     }
+
+    @data_keys = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+    ]
+    @data_values = [0, 10, 5, 2, 20, 30, 45]
+    
   end
 
   def create
