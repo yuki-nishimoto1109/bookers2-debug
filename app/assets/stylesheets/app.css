@@ -1,0 +1,38 @@
+.fadeIn {
+  animation-name: fadeInAnime;
+  animation-duration:3s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInAnime{
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*==================================================
+ランダムにテキスト出現する
+===================================*/
+.TextRandomAnime span{
+  opacity: 0;
+}
+.TextRandomAnime.appearRandomtext span{
+  animation:text_randomanime_on .5s ease-out forwards;
+}
+
+@keyframes text_randomanime_on {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.TextRandomAnime.appearRandomtext span:nth-child(2n) {
+  animation-delay: .5s;/* spanのついた2の倍数の文字列の変化を0.5秒遅らせる*/
+}
+.TextRandomAnime.appearRandomtext span:nth-child(3n+1) {
+  animation-delay: .15s;/* spanのついた3の倍数＋1の文字列の変化を0.15秒遅らせる*/
+}
