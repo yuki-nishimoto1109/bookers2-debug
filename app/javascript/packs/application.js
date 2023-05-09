@@ -12,7 +12,9 @@ import "popper.js"
 import "bootstrap"
 import '@fortawesome/fontawesome-free/js/all';
 import "../stylesheets/application"
-
+import "../packs/animation"
+import "../packs/counter"
+import "../packs/jquery.inview"
 import Raty from "raty.js"
 window.raty = function(elem,opt) {
   let raty =  new Raty(elem,opt)
